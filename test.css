@@ -1,0 +1,64 @@
+/* --- HEADER & NAVIGATION --- */
+header {
+  background-color: rgba(252, 252, 252, 0.95);
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--title-color);
+}
+
+.logo span {
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav a {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent-hover);
+}
+
+.burger-menu {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--title-color);
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-light);
+  text-align: center;
+  padding: 3rem;
+  font-size: 0.9rem;
+}

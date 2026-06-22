@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olivier - Artiste Peintre</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header>
+      <div class="logo">Olivier <span>Artiste Peintre</span></div>
+      <button class="burger-menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li><a href="creation.html">Création</a></li>
+          <li><a href="olivier.html">L'artiste</a></li>
+          <li><a href="expositions.html">Expositions</a></li>
+          <li><a href="playlist.html">Ma Playlist</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- SECTION HERO -->
+      <section class="hero-painter subtle-gradient">
+        <div class="container text-center">
+          <h1 style="font-size: 4rem; margin-bottom: 1rem">
+            L'émotion par la couleur
+          </h1>
+          <p
+            style="
+              font-size: 1.2rem;
+              max-width: 600px;
+              margin: 0 auto 2rem;
+              color: var(--text-light);
+            "
+          >
+            Bienvenue dans mon univers. Découvrez des toiles où la matière et
+            les teintes vives se rencontrent.
+          </p>
+          <a href="creation.html" class="btn-primary">Découvrir mes toiles</a>
+        </div>
+      </section>
+
+      <!-- MISE EN AVANT : 3 TOILES -->
+      <section class="container" style="margin-top: 5rem; margin-bottom: 5rem">
+        <h2 class="section-title text-center">Œuvres récentes</h2>
+        <div class="highlight-grid">
+          <div class="highlight-item">
+            <img
+              src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=600&q=80"
+              alt="Toile 1"
+            />
+            <h3>Symphonie Rouge</h3>
+          </div>
+          <div class="highlight-item">
+            <img
+              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=600&q=80"
+              alt="Toile 2"
+            />
+            <h3>Éclat d'Azur</h3>
+          </div>
+          <div class="highlight-item">
+            <img
+              src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
+              alt="Toile 3"
+            />
+            <h3>Mouvement Perpétuel</h3>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Olivier - Artiste Peintre</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

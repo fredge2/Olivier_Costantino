@@ -1,0 +1,600 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap");
+
+:root {
+  /* Couleurs de base très sobres pour faire ressortir les toiles */
+  --bg-color: #fcfcfc;
+  --bg-secondary: #f4f4f4;
+  --text-color: #4a4a4a;
+  --title-color: #2c3e50; /* Gris anthracite profond, pas de noir pur */
+  --text-light: #7f8c8d;
+
+  /* Couleur d'accentuation douce (Sable/Lin) */
+  --accent-color: #d4c4b7;
+  --accent-hover: #b8a696;
+
+  /* Polices élégantes */
+  --font-title: "Playfair Display", serif;
+  --font-text: "Lato", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-text);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.8;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  color: var(--title-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --- HEADER COMPACT --- */
+header {
+  background-color: rgba(252, 252, 252, 0.95);
+  padding: 0.8rem 5%; /* Réduit de 1.5rem à 0.8rem */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.4rem; /* Légèrement réduit */
+  color: var(--title-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Un peu moins d'espace pour gagner en largeur */
+}
+
+/* --- HEADER & NAVIGATION --- */
+.burger-menu {
+  display: none; /* CACHÉ PAR DÉFAUT SUR GRAND ÉCRAN */
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text-color);
+}
+
+/* --- SECTIONS D'EN-TÊTE --- */
+.page-header {
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: var(--accent-color);
+  margin: 15px auto 0;
+}
+
+/* --- DÉGRADÉS DISCRETS --- */
+.subtle-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(248, 246, 240, 0.8) 0%,
+    rgba(250, 250, 250, 1) 100%
+  );
+}
+
+/* --- CARROUSEL HORIZONTAL --- */
+.top-carousel-section {
+  padding-bottom: 4rem;
+}
+
+.portfolio-grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 5%;
+  scrollbar-width: none; /* Cache la barre de défilement */
+}
+
+.portfolio-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio-item {
+  flex: 0 0 min(80vw, 400px);
+  scroll-snap-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-thumb {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover .gallery-thumb {
+  transform: scale(1.02);
+}
+
+.gallery-info-box p {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* --- MISE EN PAGE EN QUINCONCE --- */
+.quinconce-row {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+.quinconce-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.quinconce-img {
+  flex: 1;
+}
+
+.quinconce-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+.quinconce-text {
+  flex: 1;
+  padding: 2rem;
+}
+
+.quinconce-text h3 {
+  font-size: 1.8rem;
+  color: var(--title-color);
+}
+
+/* --- BOUTONS --- */
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--title-color);
+  padding: 12px 30px;
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--title-color);
+  color: white;
+  padding: 15px 35px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: background 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --- INVITE À L'ACHAT (CTA) --- */
+.cta-achat {
+  padding: 6rem 5%;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.cta-achat p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+/* --- MODAL LIGHTBOX (Galerie) --- */
+/* --- MODAL LIGHTBOX (Galerie sur fond noir) --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* Remplacement du blanc par un noir profond presque opaque */
+  background-color: rgba(10, 10, 10, 0.98);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-image-wrapper {
+  max-width: 80%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 100%;
+  max-height: 75vh;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+}
+
+#modal-caption {
+  /* Texte en blanc */
+  color: #ffffff;
+  margin-top: 1.5rem;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.modal-nav-btn {
+  background: transparent;
+  border: none;
+  /* Flèches en blanc */
+  color: #ffffff;
+  font-size: 3rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    color 0.3s;
+}
+
+.modal-nav-btn:hover {
+  transform: scale(1.1);
+  color: var(--accent-hover);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  /* Croix de fermeture en blanc */
+  color: #ffffff;
+  font-size: 4rem;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 2600;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: var(--accent-hover);
+}
+
+/* --- FOOTER COMPACT --- */
+footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1.5rem; /* Réduit de 3rem à 1.5rem */
+  font-size: 0.8rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+  .burger-menu {
+    display: block;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  }
+  nav ul.show {
+    display: flex;
+  }
+  .quinconce-row,
+  .quinconce-row.reverse {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  .quinconce-text {
+    padding: 0;
+    text-align: center;
+  }
+  .modal-nav-btn {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 850px) {
+  /* Assure que le logo et le menu burger tiennent sur une seule ligne */
+  header {
+    padding: 0.5rem 5%;
+  }
+
+  /* Force les images en quinconce à s'empiler proprement */
+  .quinconce-row,
+  .quinconce-row.reverse {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Gère la taille des images sur mobile pour ne pas déborder */
+  .quinconce-img img {
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  /* Empêche les titres géants de sortir de l'écran sur mobile */
+  h1 {
+    font-size: 2.2rem !important;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  /* Ajuste la grille de l'accueil pour les mobiles */
+  .highlight-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block; /* AFFICHE LE BURGER UNIQUEMENT SUR PETIT ÉCRAN */
+  }
+
+  nav ul {
+    /* ... votre code existant pour masquer le menu nav sur mobile ... */
+    display: none;
+    /* ... */
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+}
+
+/* Protection supplémentaire pour éviter les débordements horizontaux */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* --- NOUVEAUTÉS POUR L'ACCUEIL --- */
+.hero-painter {
+  padding: 8rem 0 6rem;
+}
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.highlight-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+.highlight-item:hover img {
+  transform: scale(1.03);
+}
+.highlight-item h3 {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* --- SECTION FOND NOIR POUR LE CARROUSEL --- */
+.dark-section {
+  background-color: #111111; /* Noir très profond */
+  color: #ffffff;
+}
+
+.dark-section .gallery-thumb {
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+.btn-outline-light {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 12px 30px;
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background: #ffffff;
+  color: #111111;
+}
+
+/* On force le titre de section à être centré dans ce contexte */
+.text-center {
+  text-align: center;
+}
+/* --- PAGE EXPOSITIONS --- */
+.expo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.expo-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-left: 3px solid var(--title-color);
+  transition: transform 0.3s;
+}
+
+.expo-item:hover {
+  transform: translateX(5px);
+}
+
+.expo-date {
+  flex: 0 0 200px;
+  font-weight: 700;
+  color: var(--accent-hover);
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+}
+
+.expo-details {
+  flex: 1;
+}
+
+.expo-details h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.expo-details p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.past-expos .expo-item {
+  border-left-color: var(--accent-color);
+  opacity: 0.85;
+}
+
+/* --- PAGE PLAYLIST --- */
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.playlist-item {
+  background: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border-top: 3px solid var(--accent-color);
+  transition: transform 0.3s;
+}
+
+.playlist-item:hover {
+  transform: translateY(-5px);
+}
+
+.playlist-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.playlist-item h3 {
+  font-size: 1.3rem;
+}
+
+.playlist-item p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.playlist-tag {
+  display: inline-block;
+  background: var(--bg-secondary);
+  color: var(--title-color);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive Expositions */
+@media (max-width: 600px) {
+  .expo-item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .expo-date {
+    flex: auto;
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Création - Olivier Peintre</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header>
+      <div class="logo">Olivier <span>Artiste Peintre</span></div>
+      <button class="burger-menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="creation.html" class="active">Création</a></li>
+          <li><a href="olivier.html">L'artiste</a></li>
+          <li><a href="expositions.html">Expositions</a></li>
+          <li><a href="playlist.html">Ma Playlist</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-header subtle-gradient">
+        <div class="container">
+          <h1 class="section-title text-center">Création</h1>
+        </div>
+      </section>
+
+      <!-- SECTION EN QUINCONCE (Mise en scène) -->
+      <section class="container" style="margin-top: 3rem; margin-bottom: 4rem">
+        <!-- Bloc 1 -->
+        <div class="quinconce-row">
+          <div class="quinconce-img">
+            <img
+              src="IMG_0834001.jpg"
+              alt="Portrait d'Olivier dans son atelier"
+            />
+          </div>
+          <div class="quinconce-text">
+            <h3>La genèse des couleurs</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bloc 2 (Inversé) -->
+        <div class="quinconce-row reverse">
+          <div class="quinconce-img">
+            <img
+              src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=800&q=80"
+              alt="Détail de pinceaux et palettes"
+            />
+          </div>
+          <div class="quinconce-text">
+            <h3>Le mouvement et la matière</h3>
+            <p>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia deserunt mollit anim id est laborum. Curabitur pretium
+              tincidunt lacus. Nulla gravida orci a odio.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bloc 3 -->
+        <div class="quinconce-row">
+          <div class="quinconce-img">
+            <img
+              src="https://images.unsplash.com/photo-1510985558774-67252033bc69?auto=format&fit=crop&w=800&q=80"
+              alt="Détail de peinture sur toile"
+            />
+          </div>
+          <div class="quinconce-text">
+            <h3>Inspirations plurielles</h3>
+            <p>
+              Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+              vitae, ultricies eget, tempor sit amet, ante.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bloc 4 (Inversé) -->
+        <div class="quinconce-row reverse">
+          <div class="quinconce-img">
+            <img
+              src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80"
+              alt="Toile achevée dans l'atelier"
+            />
+          </div>
+          <div class="quinconce-text">
+            <h3>L'achèvement</h3>
+            <p>
+              Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum
+              erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.
+              Aenean fermentum, elit eget tincidunt condimentum.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="container text-center"
+        style="margin-top: 4rem; margin-bottom: 4rem"
+      >
+        <h2 class="section-title">Découvrir les toiles</h2>
+      </div>
+
+      <section class="dark-section" style="padding: 7rem 0">
+        <div class="container text-center">
+          <h2 style="color: white; margin-bottom: 2rem">Galerie des Toiles</h2>
+        </div>
+
+        <div class="portfolio-grid" data-gallery="peintures">
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=600&q=80"
+              class="gallery-thumb"
+              alt="Toile 1"
+            />
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=600&q=80"
+              class="gallery-thumb"
+              alt="Toile 2"
+            />
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
+              class="gallery-thumb"
+              alt="Toile 3"
+            />
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&w=600&q=80"
+              class="gallery-thumb"
+              alt="Toile 4"
+            />
+          </div>
+        </div>
+
+        <div class="gallery-info-box">
+          <p style="color: #aaa">
+            Faites glisser pour explorer • Cliquez pour agrandir
+          </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem">
+          <button id="btn-all-paintings" class="btn-outline-light">
+            Visionner la galerie complète (50 toiles)
+          </button>
+        </div>
+
+        <!-- Dépôt caché contenant les 50 toiles -->
+        <div id="data-all-paintings" style="display: none">
+          <img
+            src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1200&q=80"
+            alt="Symphonie en rouge - 80x80cm"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=80"
+            alt="Éclat d'azur - 100x120cm"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80"
+            alt="Mouvement perpétuel - 60x60cm"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1508898578281-774ac4893c0c?auto=format&fit=crop&w=1200&q=80"
+            alt="Horizon fragmenté - 120x80cm"
+          />
+        </div>
+      </section>
+
+      <!-- INVITE À L'ACHAT DISCRÈTE -->
+      <section class="cta-achat">
+        <div class="container text-center">
+          <h2>Acquérir une œuvre</h2>
+          <p>
+            Une toile a retenu votre attention ou vous souhaitez commander une
+            œuvre sur mesure ?<br />
+            N'hésitez pas à me contacter.
+          </p>
+          <a href="contact.html" class="btn-primary"
+            >Discutons de votre projet</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- FENÊTRE MODALE (Galerie Plein Écran) -->
+    <div id="image-modal" class="modal">
+      <span class="close-modal">&times;</span>
+      <button class="modal-nav-btn prev-modal-btn">❮</button>
+      <div class="modal-image-wrapper">
+        <img class="modal-content" id="modal-img" alt="Image agrandie" />
+        <div id="modal-caption"></div>
+      </div>
+      <button class="modal-nav-btn next-modal-btn">❯</button>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Olivier - Artiste Peintre</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
