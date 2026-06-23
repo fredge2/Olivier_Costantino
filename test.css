@@ -62,3 +62,37 @@ footer {
   padding: 3rem;
   font-size: 0.9rem;
 }
+
+
+@media (max-width: 850px) {
+  .burger-menu {
+    display: block;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  }
+  nav ul.show {
+    display: flex;
+  }
+  .quinconce-row,
+  .quinconce-row.reverse {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  .quinconce-text {
+    padding: 0;
+    text-align: center;
+  }
+  .modal-nav-btn {
+    font-size: 2rem;
+  }
+}
