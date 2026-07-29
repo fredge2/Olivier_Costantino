@@ -3,12 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ma Playlist - Olivier Peintre</title>
+    <title>Ma Playlist - Olivier Costantino</title>
+    <!-- Lien vers le style général du site -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- STYLE SPÉCIFIQUE À LA PLAYLIST COLORÉE -->
+    <style>
+      /* --- NOUVEAU FOND DÉGRADÉ JAUNE BLEU VERT VIOLET --- */
+      body {
+        /* On force le dégradé sur tout le corps de la page */
+        background: linear-gradient(
+          135deg,
+          #ffeb3b,
+          #2196f3,
+          #4caf50,
+          #9c27b0
+        ) !important;
+        background-attachment: fixed !important;
+        background-size: cover !important;
+      }
+
+      /* Pour que le texte de l'en-tête reste bien lisible sur ce fond coloré */
+      .page-header h1,
+      .page-header p {
+        color: white !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+      }
+
+      .playlist-scatter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        padding: 4rem 5%;
+        overflow-x: hidden;
+      }
+
+      /* La forme organique "tache de couleur" */
+      .artist-blob {
+        position: relative;
+        width: clamp(260px, 25vw, 320px);
+        min-height: 300px;
+        margin: 2rem 1rem;
+        padding: 2.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s ease;
+        /* Animation fluide pour faire "respirer" les formes */
+        animation: morph 8s ease-in-out infinite alternate;
+        /* Ajout d'une bordure blanche semi-transparente pour détacher la forme du fond */
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .artist-blob:hover {
+        transform: scale(1.08) !important;
+        z-index: 10;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+      }
+
+      /* Effet aléatoire de positionnement */
+      .artist-blob:nth-child(odd) {
+        transform: translateY(40px);
+      }
+      .artist-blob:nth-child(even) {
+        transform: translateY(-30px);
+      }
+      .artist-blob:nth-child(3n) {
+        transform: translateY(60px) translateX(20px);
+      }
+      .artist-blob:nth-child(4n) {
+        transform: translateY(-50px) translateX(-20px);
+      }
+      .artist-blob:nth-child(5n) {
+        transform: translateY(20px) translateX(-30px);
+      }
+
+      /* Animation des bords (effet liquide) */
+      @keyframes morph {
+        0% {
+          border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+        50% {
+          border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+        }
+        100% {
+          border-radius: 50% 50% 60% 40% / 60% 40% 50% 60%;
+        }
+      }
+
+      .artist-blob img {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 1.2rem;
+        border: 5px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .artist-blob h3 {
+        font-family: var(--font-title);
+        font-size: 1.6rem;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .artist-blob audio {
+        width: 95%;
+        height: 40px;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Les couleurs internes des taches (ajustées pour contraster avec le fond) */
+      .color-1 {
+        background: linear-gradient(135deg, #ff3366, #ff6b6b);
+      }
+      .color-2 {
+        background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      }
+      .color-3 {
+        background: linear-gradient(135deg, #ff9933, #ffd166);
+      }
+      .color-4 {
+        background: linear-gradient(135deg, #8e2de2, #4a00e0);
+      }
+      .color-5 {
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+      }
+      .color-6 {
+        background: linear-gradient(135deg, #00e1d9, #0072ff);
+      }
+      .color-7 {
+        background: linear-gradient(135deg, #ff0055, #ff5e7e);
+      }
+      .color-8 {
+        background: linear-gradient(135deg, #11998e, #38ef7d);
+      }
+      .color-9 {
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      }
+    </style>
   </head>
   <body>
     <header>
-      <div class="logo">Olivier <span>Artiste Peintre</span></div>
+      <div class="logo">Olivier Costantino <span>Artiste Peintre</span></div>
       <button class="burger-menu">☰</button>
       <nav>
         <ul>
@@ -23,38 +169,163 @@
     </header>
 
     <main>
-      <section class="page-header subtle-gradient">
+      <!-- J'ai retiré la classe 'subtle-gradient' ici pour laisser voir le fond global -->
+      <section class="page-header" style="background: transparent">
         <div class="container text-center">
-          <h1 class="section-title">Ma Playlist</h1>
-          <p style="color: var(--text-light); max-width: 600px; margin: 0 auto">
-            La musique accompagne chaque coup de pinceau. Découvrez les
-            ambiances sonores qui inspirent mes toiles dans l'atelier.
+          <h1 class="section-title">Les Voix de l'Atelier</h1>
+          <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem">
+            Plongez dans le chaos créatif et coloré de ma palette musicale.
+            Cliquez sur lecture pour écouter les morceaux qui accompagnent mes
+            coups de pinceau.
           </p>
         </div>
       </section>
 
-      <section class="container" style="margin-top: 3rem; margin-bottom: 6rem">
-        <div class="playlist-grid">
-          <div class="playlist-item">
-            <div class="playlist-icon">🎵</div>
-            <h3>Jazz & Abstraction</h3>
-            <p>Miles Davis, John Coltrane, Thelonious Monk...</p>
-            <span class="playlist-tag">Pour les couleurs chaudes</span>
-          </div>
+      <!-- LE CONTENEUR ALÉATOIRE -->
+      <section class="playlist-scatter">
+        <div class="artist-blob color-1">
+          <img src="https://picsum.photos/seed/era/200/200" alt="Éra" />
+          <h3>Éra</h3>
+          <audio controls>
+            <source src="audio/era.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
 
-          <div class="playlist-item">
-            <div class="playlist-icon">🎹</div>
-            <h3>Classique & Mouvement</h3>
-            <p>Chopin, Debussy, Erik Satie...</p>
-            <span class="playlist-tag">Pour la fluidité des traits</span>
-          </div>
+        <div class="artist-blob color-8">
+          <img
+            src="https://picsum.photos/seed/thiefaine/200/200"
+            alt="Hubert-Félix Thiéfaine"
+          />
+          <h3>H-F. Thiéfaine</h3>
+          <audio controls>
+            <source src="audio/thiefaine.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
 
-          <div class="playlist-item">
-            <div class="playlist-icon">🎸</div>
-            <h3>Blues de l'Atelier</h3>
-            <p>B.B. King, Muddy Waters, Stevie Ray Vaughan...</p>
-            <span class="playlist-tag">Pour l'énergie brute</span>
-          </div>
+        <div class="artist-blob color-3">
+          <img
+            src="https://picsum.photos/seed/tetes/200/200"
+            alt="Têtes Raides"
+          />
+          <h3>Têtes Raides</h3>
+          <audio controls>
+            <source src="audio/tetes-raides.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-4">
+          <img
+            src="https://picsum.photos/seed/brel/200/200"
+            alt="Jacques Brel"
+          />
+          <h3>Jacques Brel</h3>
+          <audio controls>
+            <source src="audio/brel.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-6">
+          <img
+            src="https://picsum.photos/seed/floyd/200/200"
+            alt="Pink Floyd"
+          />
+          <h3>Pink Floyd</h3>
+          <audio controls>
+            <source src="audio/pink-floyd.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-9">
+          <img src="https://picsum.photos/seed/mano/200/200" alt="Mano Solo" />
+          <h3>Mano Solo</h3>
+          <audio controls>
+            <source src="audio/mano-solo.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-2">
+          <img
+            src="https://picsum.photos/seed/marley/200/200"
+            alt="Bob Marley"
+          />
+          <h3>Bob Marley</h3>
+          <audio controls>
+            <source src="audio/marley.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-5">
+          <img
+            src="https://picsum.photos/seed/dassin/200/200"
+            alt="Joe Dassin"
+          />
+          <h3>Joe Dassin</h3>
+          <audio controls>
+            <source src="audio/dassin.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-7">
+          <img
+            src="https://picsum.photos/seed/brassens/200/200"
+            alt="Georges Brassens"
+          />
+          <h3>Georges Brassens</h3>
+          <audio controls>
+            <source src="audio/brassens.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-1">
+          <img
+            src="https://picsum.photos/seed/gainsbourg/200/200"
+            alt="Serge Gainsbourg"
+          />
+          <h3>Serge Gainsbourg</h3>
+          <audio controls>
+            <source src="audio/gainsbourg.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-8">
+          <img src="https://picsum.photos/seed/renaud/200/200" alt="Renaud" />
+          <h3>Renaud</h3>
+          <audio controls>
+            <source src="audio/renaud.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-3">
+          <img
+            src="https://picsum.photos/seed/telephone/200/200"
+            alt="Téléphone"
+          />
+          <h3>Téléphone</h3>
+          <audio controls>
+            <source src="audio/telephone.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-4">
+          <img
+            src="https://picsum.photos/seed/sheller/200/200"
+            alt="William Sheller"
+          />
+          <h3>William Sheller</h3>
+          <audio controls>
+            <source src="audio/sheller.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="artist-blob color-2">
+          <img
+            src="https://picsum.photos/seed/classique/200/200"
+            alt="Musique classique"
+          />
+          <h3>Musique Classique</h3>
+          <audio controls>
+            <source src="audio/classique.mp3" type="audio/mpeg" />
+          </audio>
         </div>
       </section>
     </main>
