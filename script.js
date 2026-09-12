@@ -130,3 +130,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// ==========================================
+  // 5. LECTURE AUDIO UNIQUE (LECTEUR DE BASE)
+  // ==========================================
+  const allAudios = document.querySelectorAll('audio');
+
+  allAudios.forEach(audio => {
+    audio.addEventListener('play', (event) => {
+      // Met en pause tous les autres lecteurs
+      allAudios.forEach(otherAudio => {
+        if (otherAudio !== event.target) {
+          otherAudio.pause();
+        }
+      });
+    });
+  });
