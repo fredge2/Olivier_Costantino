@@ -44,7 +44,7 @@
         <div class="quinconce-text" style="flex: 1; padding: 0 2rem 0 0">
           <h3 style="margin-bottom: 1.5rem">Coordonnées</h3>
           <p style="margin-bottom: 0.5rem">
-            <strong>Atelier :</strong> 12 Rue des Artistes, 75000 Paris
+            <strong>Atelier :</strong> 2, rue de Thann, 68700 Cernay
           </p>
           <p style="margin-bottom: 0.5rem">
             <strong>Téléphone :</strong> 07 70 72 71 09
@@ -74,20 +74,18 @@
           "
         >
           <form
-            name="contact-peintre"
+            action="https://formsubmit.co/Oliviercstntn@gmail.com"
             method="POST"
-            data-netlify="true"
-            action="/"
-            netlify-honeypot="bot-field"
             style="display: flex; flex-direction: column; gap: 1rem"
           >
-            <p class="hidden-honeypot" style="display: none">
-              <label
-                >Ne remplissez pas ce champ si vous êtes humain :
-                <input name="bot-field"
-              /></label>
-            </p>
+            <!-- 1. Configuration Formsubmit (Anti-spam et Bypass Captcha) -->
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style="display: none" />
 
+            <!-- Redirection après envoi (retirez les commentaires si vous créez une page merci.html) -->
+            <!-- <input type="hidden" name="_next" value="https://votre-domaine.com/merci.html" /> -->
+
+            <!-- 2. Champs de saisie (Styles d'origine conservés) -->
             <input
               type="text"
               name="nom"
