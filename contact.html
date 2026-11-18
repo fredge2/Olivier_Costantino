@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Olivier Costantino</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap"
+    />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -26,13 +34,15 @@
     </header>
 
     <main class="container" style="margin-top: 4rem; margin-bottom: 6rem">
-      <h1 class="section-title text-center">Me Contacter</h1>
+      <div class="text-center">
+        <h1 class="section-title text-center">Me Contacter</h1>
+      </div>
       <p
         style="
           text-align: center;
           max-width: 600px;
           margin: 0 auto 4rem;
-          color: var(--text-light);
+          color: var(--text-color);
         "
       >
         Une toile vous intéresse ? Vous souhaitez échanger sur mon travail ou
@@ -74,18 +84,21 @@
           "
         >
           <form
-            action="https://formsubmit.co/xxxxxxxxgmail.com"
+            name="contact"
             method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
             style="display: flex; flex-direction: column; gap: 1rem"
           >
-            <!-- 1. Configuration Formsubmit (Anti-spam et Bypass Captcha) -->
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="text" name="_honey" style="display: none" />
+            <!-- 1. Identification Netlify et filtre anti-spam -->
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="display: none">
+              <label
+                >Ne pas remplir ce champ : <input name="bot-field"
+              /></label>
+            </p>
 
-            <!-- Redirection après envoi (retirez les commentaires si vous créez une page merci.html) -->
-            <!-- <input type="hidden" name="_next" value="https://votre-domaine.com/merci.html" /> -->
-
-            <!-- 2. Champs de saisie (Styles d'origine conservés) -->
+            <!-- 2. Champs de saisie (styles d'origine conservés) -->
             <input
               type="text"
               name="nom"
@@ -139,7 +152,16 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 FGCreation.eu</p>
+      <p>
+        © 2026 Olivier Costantino — Artiste Peintre | Réalisation :
+        <a
+          href="https://fgcreation.eu"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="lien-fg"
+          >FG Création</a
+        >
+      </p>
     </footer>
     <script src="script.js"></script>
   </body>

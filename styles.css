@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap");
-
 :root {
+  /* Couleurs de base très sobres pour faire ressortir les toiles */
+
   /* Couleurs de base très sobres pour faire ressortir les toiles */
   --bg-color: #fcfcfc;
   --bg-secondary: #f4f4f4;
-  --text-color: #4a4a4a;
+  --text-color: #333333; /* Plus soutenu que #4a4a4a */
   --title-color: #2c3e50; /* Gris anthracite profond, pas de noir pur */
-  --text-light: #7f8c8d;
+  --text-light: #555e60; /* Beaucoup plus lisible que #7f8c8d */
 
   /* Couleur d'accentuation douce (Sable/Lin) */
   --accent-color: #d4c4b7;
@@ -597,4 +597,16 @@ body {
     flex: auto;
     margin-bottom: 0.5rem;
   }
+}
+
+.lien-fg {
+  color: #e09f5a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.lien-fg:hover {
+  color: #f3be82;
+  text-decoration: underline;
 }
